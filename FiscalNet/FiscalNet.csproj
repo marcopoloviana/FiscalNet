@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementacoes\IcmsExceptions\SemBasePropriaException.cs" />
+    <Compile Include="Implementacoes\IcmsExceptions\SemSTException.cs" />
     <Compile Include="Implementacoes\Icms\Icms101_102_103.cs" />
     <Compile Include="Implementacoes\Icms\Icms201_202_203.cs" />
     <Compile Include="Interfaces\ICofins.cs" />

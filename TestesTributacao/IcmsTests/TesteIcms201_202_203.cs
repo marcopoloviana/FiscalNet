@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FiscalNET.Implementacoes.IcmsImpl;
 using FiscalNET.Interfaces;
 
-namespace TestesTributacao
+namespace TestesTributacao.IcmsTests
 {
     [TestClass]
     public class TesteIcms201_202_203

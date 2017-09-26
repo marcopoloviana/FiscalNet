@@ -1,4 +1,5 @@
-﻿using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,22 @@ namespace FiscalNet.Implementacoes.Icms
 {
     public class Icms101_102_103 : IIcms
     {
+        public bool PossuiIcmsProprio
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public bool PossuiIcmsST
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         public Icms101_102_103(int csosn)
         {
 
@@ -16,22 +33,22 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcms()
         {
-            return 0;
-        }
-
-        public decimal BaseIcmsST()
-        {
-            throw new NotImplementedException();
+            throw new SemBasePropriaException();
         }
 
         public decimal ValorIcms()
         {
-            return 0;
+            throw new SemBasePropriaException();
+        }
+
+        public decimal BaseIcmsST()
+        {
+            throw new SemSTException();
         }
 
         public decimal ValorIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemSTException();
         }
     }
 }

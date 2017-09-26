@@ -1,4 +1,5 @@
-﻿using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace FiscalNET.Implementacoes.IcmsImpl
 {
     public class Icms201_202_203 : IIcms
     {
+
+
         private decimal AliqInterest { get; set; }
         private decimal AliqInterna { get; set; }
         private decimal ValorIpi { get; set; }
@@ -17,6 +20,22 @@ namespace FiscalNET.Implementacoes.IcmsImpl
         private decimal MVA { get; set; }
         private decimal ValorProduto { get; set; }
         private decimal ValorSeguro { get; set; }
+
+        public bool PossuiIcmsProprio
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public bool PossuiIcmsST
+        {
+            get
+            {
+                return true;
+            }
+        }
 
         /// <summary>
         /// 
@@ -99,12 +118,12 @@ namespace FiscalNET.Implementacoes.IcmsImpl
 
         public decimal BaseIcms()
         {
-            throw new Exception("Este CSOSN não possui base própria de ICMS.");
+            throw new SemBasePropriaException();
         }
 
         public decimal ValorIcms()
         {
-            throw new Exception("Este CSOSN não possui ICMS próprio.");
+            throw new SemBasePropriaException();
         }
     }
 }
