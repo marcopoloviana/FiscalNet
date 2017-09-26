@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalNet", "FiscalNet\FiscalNet.csproj", "{A7A80B37-94D9-49F9-9E10-2225631D0238}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesTributos", "TestesTributos\TestesTributos.csproj", "{326DBC87-E0CF-44BD-9A1D-ECEF1210EE4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesTributacao", "TestesTributacao\TestesTributacao.csproj", "{53D81716-273A-4E25-B9E6-759A9039AC6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7A80B37-94D9-49F9-9E10-2225631D0238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A80B37-94D9-49F9-9E10-2225631D0238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A80B37-94D9-49F9-9E10-2225631D0238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A80B37-94D9-49F9-9E10-2225631D0238}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326DBC87-E0CF-44BD-9A1D-ECEF1210EE4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326DBC87-E0CF-44BD-9A1D-ECEF1210EE4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326DBC87-E0CF-44BD-9A1D-ECEF1210EE4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326DBC87-E0CF-44BD-9A1D-ECEF1210EE4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D81716-273A-4E25-B9E6-759A9039AC6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D81716-273A-4E25-B9E6-759A9039AC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D81716-273A-4E25-B9E6-759A9039AC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D81716-273A-4E25-B9E6-759A9039AC6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

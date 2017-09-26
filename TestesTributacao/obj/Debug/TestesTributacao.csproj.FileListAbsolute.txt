@@ -1,0 +1,7 @@
+C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\TestesTributacao\bin\Debug\TestesTributacao.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\TestesTributacao\bin\Debug\TestesTributacao.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\TestesTributacao\bin\Debug\FiscalNet.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\TestesTributacao\bin\Debug\FiscalNet.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.pdb
