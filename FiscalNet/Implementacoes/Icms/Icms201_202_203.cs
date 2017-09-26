@@ -10,8 +10,6 @@ namespace FiscalNET.Implementacoes.IcmsImpl
 {
     public class Icms201_202_203 : IIcms
     {
-
-
         private decimal AliqInterest { get; set; }
         private decimal AliqInterna { get; set; }
         private decimal ValorIpi { get; set; }
