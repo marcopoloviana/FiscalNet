@@ -8,6 +8,9 @@ namespace FiscalNET.Interfaces
 {
     public interface IIcms
     {
+        bool PossuiIcmsProprio { get; }
+        bool PossuiIcmsST { get; }
+
         decimal BaseIcms();
         decimal ValorIcms();
 

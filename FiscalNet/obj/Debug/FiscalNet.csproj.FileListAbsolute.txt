@@ -3,3 +3,8 @@ c:\users\user\documents\visual studio 2015\Projects\FiscalNet\FiscalNet\bin\Debu
 c:\users\user\documents\visual studio 2015\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.dll
 c:\users\user\documents\visual studio 2015\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.pdb
 C:\Users\User\Documents\Visual Studio 2015\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.csprojResolveAssemblyReference.cache
+C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\FiscalNet\bin\Debug\FiscalNet.dll
+C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\FiscalNet\bin\Debug\FiscalNet.pdb
+C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\FiscalNet\obj\Debug\FiscalNet.csprojResolveAssemblyReference.cache
+C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\FiscalNet\obj\Debug\FiscalNet.dll
+C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\FiscalNet\obj\Debug\FiscalNet.pdb

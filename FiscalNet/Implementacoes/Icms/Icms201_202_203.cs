@@ -1,4 +1,5 @@
-﻿using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,22 @@ namespace FiscalNET.Implementacoes.IcmsImpl
         private decimal MVA { get; set; }
         private decimal ValorProduto { get; set; }
         private decimal ValorSeguro { get; set; }
+
+        public bool PossuiIcmsProprio
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public bool PossuiIcmsST
+        {
+            get
+            {
+                return true;
+            }
+        }
 
         /// <summary>
         /// 
@@ -88,7 +105,7 @@ namespace FiscalNET.Implementacoes.IcmsImpl
 
         public decimal ValorIcmsST()
         {
-            /*
+            /* ksakjadlkasnlkdnlsak
              * (Base do ICMS ST * (Alíquota do ICMS Intra / 100)) – Valor do ICMS Inter
              * */
 
@@ -99,12 +116,12 @@ namespace FiscalNET.Implementacoes.IcmsImpl
 
         public decimal BaseIcms()
         {
-            throw new Exception("Este CSOSN não possui base própria de ICMS.");
+            throw new SemBasePropriaException();
         }
 
         public decimal ValorIcms()
         {
-            throw new Exception("Este CSOSN não possui ICMS próprio.");
+            throw new SemBasePropriaException();
         }
     }
 }

@@ -19,10 +19,11 @@ namespace TestesTributos
         {
             IIcms icms202 = new Icms201_202_203(12, 18, 400, 1565, 35, 39, 8000, 0);
 
-            //   icms202.ValorIcms() lanca Exception;
+            decimal baseIcms = icms202.ValorIcms();
+
             decimal baseSt = icms202.BaseIcmsST();
             decimal valorSt = icms202.ValorIcmsST();
-
+            
             Console.WriteLine($"Base ST: {baseSt.ToString("N2")}");
             Console.WriteLine($"Valor ST: {valorSt.ToString("N2")}");
 
