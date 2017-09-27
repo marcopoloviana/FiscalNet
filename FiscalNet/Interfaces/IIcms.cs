@@ -10,9 +10,17 @@ namespace FiscalNET.Interfaces
     {
         bool PossuiIcmsProprio { get; }
         bool PossuiIcmsST { get; }
+        bool PossuiRedBCIcmsProprio { get; }
+        bool PossuiRedBCIcmsST { get; }
 
         decimal BaseIcms();
         decimal ValorIcms();
+
+        decimal PercRedBaseIcms();
+        decimal ValorRedBaseIcms();
+
+        decimal PercRedBaseIcmsST();
+        decimal ValorRedBaseIcmsST();
 
         decimal BaseIcmsST();
         decimal ValorIcmsST();

@@ -26,6 +26,22 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
+        public bool PossuiRedBCIcmsProprio
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool PossuiRedBCIcmsST
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public Icms101_102_103(int csosn)
         {
 
@@ -49,6 +65,26 @@ namespace FiscalNet.Implementacoes.Icms
         public decimal ValorIcmsST()
         {
             throw new SemSTException();
+        }
+
+        public decimal PercRedBaseIcms()
+        {
+            throw new NotImplementedException();
+        }
+
+        public decimal ValorRedBaseIcms()
+        {
+            throw new NotImplementedException();
+        }
+
+        public decimal PercRedBaseIcmsST()
+        {
+            throw new NotImplementedException();
+        }
+
+        public decimal ValorRedBaseIcmsST()
+        {
+            throw new NotImplementedException();
         }
     }
 }
