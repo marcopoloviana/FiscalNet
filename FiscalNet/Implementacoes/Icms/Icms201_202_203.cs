@@ -105,7 +105,7 @@ namespace FiscalNET.Implementacoes.IcmsImpl
 
         public decimal ValorIcmsST()
         {
-            /* 
+            /* ksakjadlkasnlkdnlsak
              * (Base do ICMS ST * (Alíquota do ICMS Intra / 100)) – Valor do ICMS Inter
              * */
 
