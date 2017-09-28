@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiscalNET.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    public class Icms51
+    public class Icms51 : IIcms
     {
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqDifIcms { get; set; }
