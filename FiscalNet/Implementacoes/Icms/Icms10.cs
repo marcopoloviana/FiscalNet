@@ -9,28 +9,28 @@ namespace FiscalNet.Implementacoes.Icms
 {
     class Icms10 : IIcms
     {
-        private decimal AliqInterest { get; set; }
-        private decimal AliqInterna { get; set; }
+        private decimal AliqIcmsProprio { get; set; }
+        private decimal AliqIcmsST { get; set; }
         private decimal ValorIpi { get; set; }
         private decimal DespesasAcessorias { get; set; }
         private decimal ValorFrete { get; set; }
-        private decimal MVA { get; set; }
+        private decimal Mva { get; set; }
         private decimal ValorProduto { get; set; }
         private decimal ValorSeguro { get; set; }
 
-        public Icms10(decimal aliqInterest,
-            decimal aliqInterna, decimal valorIpi, decimal despesasAcessorias,
+        public Icms10(decimal aliqIcmsProprio,
+            decimal aliqIcmsST, decimal valorIpi, decimal despesasAcessorias,
             decimal valorFrete, decimal mva, decimal valorProduto,
             decimal valorSeguro)
         {
-            this.AliqInterest = aliqInterest;
-            this.AliqInterna = aliqInterna;
-            this.ValorIpi = valorIpi;
+            this.AliqIcmsProprio    = aliqIcmsProprio;
+            this.AliqIcmsST         = aliqIcmsST;
+            this.ValorIpi           = valorIpi;
             this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete = valorFrete;
-            this.MVA = mva;
-            this.ValorProduto = valorProduto;
-            this.ValorSeguro = valorSeguro;
+            this.ValorFrete         = valorFrete;
+            this.Mva                = mva;
+            this.ValorProduto       = valorProduto;
+            this.ValorSeguro        = valorSeguro;
         }
         public bool PossuiIcmsProprio
         {
@@ -66,55 +66,23 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcms()
         {
-            /*
-             * Base do ICMS Inter = (Valor do produto +
-             *  Frete +
-             *   Seguro + 
-             *   Outras Despesas Acessórias – Descontos)
-             * */
-
-            decimal resultado = (ValorProduto +
-                ValorFrete +
-                ValorSeguro +
-                DespesasAcessorias);
-            return resultado;
+            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
         }
 
         public decimal ValorIcms()
-        {
-            decimal baseIcmsProprio = BaseIcms();
-            decimal resultado = (AliqInterest / 100 * baseIcmsProprio);
-            return resultado;
+        {            
+            return new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarValorIcms();
+
         }
 
         public decimal BaseIcmsST()
         {
-            /*
-            * (Valor do produto +
-            *  Valor do IPI +
-            *  Frete + 
-            *  Seguro +
-            *  Outras Despesas Acessórias – Descontos) * (1+(%MVA / 100))
-            * */
-
-            decimal resultado = ((ValorProduto +
-                ValorIpi +
-                ValorFrete +
-                ValorSeguro +
-                DespesasAcessorias) * (1 + (MVA / 100)));
-
-            return resultado;
+            return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();
         }
 
         public decimal ValorIcmsST()
         {
-            /* ksakjadlkasnlkdnlsak
-            * (Base do ICMS ST * (Alíquota do ICMS Intra / 100)) – Valor do ICMS Inter
-            * */
-
-            decimal icmsProprio = ValorIcms();
-            decimal resultado = (BaseIcmsST() * (AliqInterna / 100)) - icmsProprio;
-            return resultado;
+            return new ValorIcmsST(AliqIcmsProprio,AliqIcmsST, ValorIpi, DespesasAcessorias,ValorFrete, Mva, ValorProduto,ValorSeguro).GerarValorIcmsST();
         }
 
         public decimal PercRedBaseIcms()

@@ -10,7 +10,7 @@ namespace FiscalNet.Implementacoes.Icms
 {
     class Icms00 : IIcms
     {
-        private decimal AliqIcms { get; set; }
+        private decimal AliqIcmsProprio { get; set; }
         private decimal ValorIpi { get; set; }
         private decimal DespesasAcessorias { get; set; }
         private decimal ValorFrete { get; set; }
@@ -37,7 +37,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
@@ -45,16 +45,16 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
-        public Icms00(decimal aliqIcms,
+        public Icms00(decimal aliqIcmsProprio,
             decimal valorIpi, decimal despesasAcessorias,
             decimal valorFrete, decimal valorProduto,
             decimal valorSeguro)
         {
-            this.AliqIcms = aliqIcms;
+            this.AliqIcmsProprio = aliqIcmsProprio;
             this.ValorIpi = valorIpi;
             this.DespesasAcessorias = despesasAcessorias;
             this.ValorFrete = valorFrete;
@@ -64,25 +64,12 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcms()
         {
-            /*
-            * Base do ICMS Inter = (Valor do produto +
-            *  Frete +
-            *   Seguro + 
-            *   Outras Despesas Acessórias – Descontos)
-            * */
-
-            decimal resultado = (ValorProduto +
-                ValorFrete +
-                ValorSeguro +
-                DespesasAcessorias);
-            return resultado;
+            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
         }        
 
         public decimal ValorIcms()
-        {
-            decimal baseIcmsProprio = BaseIcms();
-            decimal resultado = (AliqIcms / 100 * baseIcmsProprio);
-            return resultado;
+        {            
+            return new ValorIcms(AliqIcmsProprio,ValorIpi, DespesasAcessorias,ValorFrete, ValorProduto, ValorSeguro).GerarValorIcms();
         }
 
         public decimal BaseIcmsST()

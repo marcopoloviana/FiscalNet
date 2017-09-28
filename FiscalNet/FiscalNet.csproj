@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Implementacoes\IcmsExceptions\SemBasePropriaException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemSTException.cs" />
+    <Compile Include="Implementacoes\Icms\BaseIcms.cs" />
+    <Compile Include="Implementacoes\Icms\BaseIcmsST.cs" />
     <Compile Include="Implementacoes\Icms\Icms00.cs" />
     <Compile Include="Implementacoes\Icms\Icms10.cs" />
     <Compile Include="Implementacoes\Icms\Icms101_102_103.cs" />
@@ -55,6 +57,8 @@
     <Compile Include="Implementacoes\Icms\Icms70.cs" />
     <Compile Include="Implementacoes\Icms\Icms90.cs" />
     <Compile Include="Implementacoes\Icms\Icms900.cs" />
+    <Compile Include="Implementacoes\Icms\ValorIcms.cs" />
+    <Compile Include="Implementacoes\Icms\ValorIcmsST.cs" />
     <Compile Include="Interfaces\ICofins.cs" />
     <Compile Include="Interfaces\IIcms.cs" />
     <Compile Include="Interfaces\IIpi.cs" />
