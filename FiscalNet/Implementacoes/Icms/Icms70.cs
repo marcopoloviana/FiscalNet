@@ -77,13 +77,13 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal ValorIcms()
         {
-            BaseIcms vBcIcms = new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
+            decimal vBaseRedIcms = new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
+            decimal vIcms = (AliqIcmsProprio / 100) * vBaseRedIcms;
 
-            decimal vRedBcIcms = vBcIcms.GerarBaseIcms() * (AliqRedBcIcms / 100);
+            decimal vBaseIcmsST = new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();
+            decimal vBcRedIcmsST = vBaseIcmsST * (AliqRedBcIcmsST / 100);
 
-            ValorIcms valorIcms = new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
-
-            return (valorIcms.GerarValorIcms() * (AliqRedBcIcms / 100));
+            return ((vBcRedIcmsST * (AliqIcmsST / 100)) - vIcms);
         }
 
 
