@@ -44,6 +44,7 @@
     <Compile Include="Implementacoes\IcmsExceptions\SemSTException.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcms.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcmsST.cs" />
+    <Compile Include="Implementacoes\Icms\BaseReduzidaIcms.cs" />
     <Compile Include="Implementacoes\Icms\Icms00.cs" />
     <Compile Include="Implementacoes\Icms\Icms10.cs" />
     <Compile Include="Implementacoes\Icms\Icms101_102_103.cs" />
