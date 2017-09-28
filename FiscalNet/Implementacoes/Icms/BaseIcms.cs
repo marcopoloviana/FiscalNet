@@ -19,11 +19,11 @@ namespace FiscalNet.Implementacoes.Icms
             decimal valorFrete, decimal valorProduto,
             decimal valorSeguro)
         {
-            this.ValorIpi = valorIpi;
+            this.ValorIpi           = valorIpi;
             this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete = valorFrete;
-            this.ValorProduto = valorProduto;
-            this.ValorSeguro = valorSeguro;
+            this.ValorFrete         = valorFrete;
+            this.ValorProduto       = valorProduto;
+            this.ValorSeguro        = valorSeguro;
         }
 
         public decimal GerarBaseIcms()
