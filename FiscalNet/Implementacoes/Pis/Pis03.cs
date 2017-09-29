@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Pis
 {
-    public class Pis_03 : IPis
+    public class Pis03 : IPis
     {
         private decimal AliqEspecificaPis { get; set; }
         private decimal DespesasAcessorias { get; set; }
@@ -16,7 +16,7 @@ namespace FiscalNet.Implementacoes.Pis
         private decimal ValorSeguro { get; set; }
         private decimal QuantidadeProduto { get; set; }
 
-        public Pis_03(decimal aliqEspecificaPis,
+        public Pis03(decimal aliqEspecificaPis,
             decimal despesasAcessorias,
             decimal valorFrete, decimal valorProduto,
             decimal valorSeguro, decimal quantidadeProduto)

@@ -66,7 +66,7 @@
     <Compile Include="Implementacoes\Ipi\Ipi50.cs" />
     <Compile Include="Implementacoes\Pis\Pis01_02.cs" />
     <Compile Include="Implementacoes\Pis\PisNaoTributado.cs" />
-    <Compile Include="Implementacoes\Pis\Pis_03.cs" />
+    <Compile Include="Implementacoes\Pis\Pis03.cs" />
     <Compile Include="Interfaces\ICofins.cs" />
     <Compile Include="Interfaces\IIcms.cs" />
     <Compile Include="Interfaces\IIpi.cs" />
