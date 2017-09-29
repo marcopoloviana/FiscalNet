@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalNet.Implementacoes.IcmsExceptions
+namespace FiscalNet.Implementacoes.IpiExceptions
 {
    public  class SemBasePropriaException : Exception
     {

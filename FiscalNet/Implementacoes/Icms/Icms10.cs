@@ -1,4 +1,4 @@
-﻿using FiscalNet.Implementacoes.IcmsExceptions;
+﻿using FiscalNet.Implementacoes.IpiExceptions;
 using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
