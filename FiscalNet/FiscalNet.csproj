@@ -61,6 +61,9 @@
     <Compile Include="Implementacoes\Icms\ValorIcms.cs" />
     <Compile Include="Implementacoes\Icms\ValorIcmsST.cs" />
     <Compile Include="Implementacoes\Ipi\Ipi50.cs" />
+    <Compile Include="Implementacoes\Pis\Pis01_02.cs" />
+    <Compile Include="Implementacoes\Pis\PisNaoTributado.cs" />
+    <Compile Include="Implementacoes\Pis\Pis_03.cs" />
     <Compile Include="Interfaces\ICofins.cs" />
     <Compile Include="Interfaces\IIcms.cs" />
     <Compile Include="Interfaces\IIpi.cs" />
@@ -78,7 +81,6 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="Implementacoes\Cofins\" />
     <Folder Include="Implementacoes\IpiExceptions\" />
-    <Folder Include="Implementacoes\Pis\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
