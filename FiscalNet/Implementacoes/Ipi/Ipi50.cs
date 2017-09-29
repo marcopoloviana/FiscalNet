@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Ipi
 {
-    class Ipi50 : IIpi
+    public class Ipi50 : IIpi
     {
         private decimal AliqIpi { get; set; }
         private decimal DespesasAcessorias { get; set; }

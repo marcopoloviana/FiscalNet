@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class Icms10 : IIcms
+    public class Icms10 : IIcms
     {
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqIcmsST { get; set; }

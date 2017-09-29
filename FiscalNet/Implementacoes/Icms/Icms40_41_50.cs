@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class Icms40_41_50 : IIcms
+    public class Icms40_41_50 : IIcms
     {
         public bool PossuiIcmsProprio
         {

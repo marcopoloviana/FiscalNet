@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class BaseReduzidaIcms
+    public class BaseReduzidaIcms
     {
         private decimal ValorIpi { get; set; }
         private decimal DespesasAcessorias { get; set; }
