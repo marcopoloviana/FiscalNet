@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementacoes\Cofins\Cofins01_02.cs" />
+    <Compile Include="Implementacoes\Cofins\Cofins03.cs" />
+    <Compile Include="Implementacoes\Cofins\CofinsNaoTributado.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemBasePropriaException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemSTException.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcms.cs" />
@@ -79,7 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
-    <Folder Include="Implementacoes\Cofins\" />
     <Folder Include="Implementacoes\IpiExceptions\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>

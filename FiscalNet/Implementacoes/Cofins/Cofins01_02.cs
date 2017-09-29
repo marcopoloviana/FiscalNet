@@ -5,39 +5,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalNet.Implementacoes.Pis
+namespace FiscalNet.Implementacoes.Cofins
 {
-    public class Pis_03 : IPis
+    public class Cofins01_02 : ICofins
     {
-        private decimal AliqEspecificaPis { get; set; }
+        private decimal AliqCofins { get; set; }
         private decimal DespesasAcessorias { get; set; }
         private decimal ValorFrete { get; set; }
         private decimal ValorProduto { get; set; }
         private decimal ValorSeguro { get; set; }
-        private decimal QuantidadeProduto { get; set; }
 
-        public Pis_03(decimal aliqEspecificaPis,
+        public Cofins01_02(decimal aliqCofins,
             decimal despesasAcessorias,
             decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro, decimal quantidadeProduto)
+            decimal valorSeguro)
         {
-            this.AliqEspecificaPis  = aliqEspecificaPis;
+            this.AliqCofins = aliqCofins;
             this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
-            this.ValorProduto       = valorProduto;
-            this.ValorSeguro        = valorSeguro;
-            this.QuantidadeProduto  = quantidadeProduto;
+            this.ValorFrete = valorFrete;
+            this.ValorProduto = valorProduto;
+            this.ValorSeguro = valorSeguro;
 
         }
         public decimal BaseCalculo()
         {
-            decimal BasePis = this.QuantidadeProduto;
+            decimal BasePis = (ValorProduto +
+                ValorFrete +
+                ValorSeguro +
+                DespesasAcessorias);
             return BasePis;
         }
 
         public decimal Valor()
         {
-            return (this.BaseCalculo() * AliqEspecificaPis);
+            return (this.BaseCalculo() * (AliqCofins / 100));
         }
     }
 }

@@ -11,7 +11,6 @@ namespace FiscalNet.Implementacoes.Pis
     {
 
         private decimal AliqPis { get; set; }
-        private decimal ValorIpi { get; set; }
         private decimal DespesasAcessorias { get; set; }
         private decimal ValorFrete { get; set; }
         private decimal ValorProduto { get; set; }
