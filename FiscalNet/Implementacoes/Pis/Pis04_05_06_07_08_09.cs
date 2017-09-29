@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalNet.Implementacoes.Cofins
+namespace FiscalNet.Implementacoes.Pis
 {
-    class CofinsNaoTributado
+    class Pis04_05_06_07_08_09
     {
     }
 }

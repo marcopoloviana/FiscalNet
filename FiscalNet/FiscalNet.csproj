@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="Implementacoes\Cofins\Cofins01_02.cs" />
     <Compile Include="Implementacoes\Cofins\Cofins03.cs" />
-    <Compile Include="Implementacoes\Cofins\CofinsNaoTributado.cs" />
+    <Compile Include="Implementacoes\Cofins\Confins04_05_06_07_08_09.cs" />
+    <Compile Include="Implementacoes\ConjuntosCST.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemBasePropriaException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemSTException.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcms.cs" />
@@ -65,7 +66,7 @@
     <Compile Include="Implementacoes\Icms\ValorIcmsST.cs" />
     <Compile Include="Implementacoes\Ipi\Ipi50.cs" />
     <Compile Include="Implementacoes\Pis\Pis01_02.cs" />
-    <Compile Include="Implementacoes\Pis\PisNaoTributado.cs" />
+    <Compile Include="Implementacoes\Pis\Pis04_05_06_07_08_09.cs" />
     <Compile Include="Implementacoes\Pis\Pis03.cs" />
     <Compile Include="Interfaces\ICofins.cs" />
     <Compile Include="Interfaces\IIcms.cs" />
