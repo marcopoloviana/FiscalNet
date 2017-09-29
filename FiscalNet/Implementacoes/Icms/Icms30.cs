@@ -1,4 +1,5 @@
-﻿using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,17 +63,8 @@ namespace FiscalNet.Implementacoes.Icms
             {
                 return false;
             }
-        }
-
-        public decimal BaseIcms()
-        {
-            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
-        }
-
-        public decimal ValorIcms()
-        {
-            return new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarValorIcms();
-        }
+        }        
+                
 
         public decimal BaseIcmsST()
         {
@@ -82,6 +74,16 @@ namespace FiscalNet.Implementacoes.Icms
         public decimal ValorIcmsST()
         {
             return new ValorIcmsST(AliqIcmsProprio, AliqIcmsST, ValorIpi, DespesasAcessorias, ValorFrete, Mva, ValorProduto, ValorSeguro).GerarValorIcmsST();
+        }
+
+        public decimal BaseIcms()
+        {
+            throw new NotImplementedException();
+        }
+
+        public decimal ValorIcms()
+        {
+            throw new NotImplementedException();
         }
 
         public decimal PercRedBaseIcms()

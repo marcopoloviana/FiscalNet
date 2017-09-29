@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiscalNET.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class Icms70
+    class Icms70 : IIcms
     {
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqRedBcIcms { get; set; }
@@ -70,7 +71,7 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        public decimal BaseIcms()
+        public decimal ValorRedBaseIcms()
         {
             return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
         }
@@ -81,7 +82,7 @@ namespace FiscalNet.Implementacoes.Icms
             return (AliqIcmsProprio / 100) * vBaseRedIcms;
         }
 
-        public decimal BaseIcmsST()
+        public decimal ValorRedBaseIcmsST()
         {
             decimal vBaseIcmsST = new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();
             return vBaseIcmsST * (AliqRedBcIcmsST / 100);
@@ -111,12 +112,12 @@ namespace FiscalNet.Implementacoes.Icms
             throw new NotImplementedException();
         }
 
-        public decimal ValorRedBaseIcms()
+        public decimal BaseIcms()
         {
             throw new NotImplementedException();
         }
 
-        public decimal ValorRedBaseIcmsST()
+        public decimal BaseIcmsST()
         {
             throw new NotImplementedException();
         }
