@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalNet.Implementacoes.Icms
+namespace FiscalNet.Implementacoes.Pis
 {
-    public class Icms90
+    class PisNaoTributado
     {
     }
 }

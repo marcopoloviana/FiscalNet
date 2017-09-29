@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class Icms300_400_500
+    public class Icms300_400_500
     {
     }
 }

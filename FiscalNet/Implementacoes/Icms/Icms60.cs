@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class Icms60
+    public class Icms60
     {
     }
 }

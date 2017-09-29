@@ -1,4 +1,5 @@
-﻿using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IpiExceptions;
+using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class Icms20 : IIcms
+    public class Icms20 : IIcms
     {
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqRedBcIcms { get; set; }
@@ -63,20 +64,20 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        public decimal BaseIcms()
-        {        
-            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
+        public decimal ValorRedBaseIcms()
+        {
+            return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
         }
 
         public decimal ValorIcms()
         {
             BaseIcms vBcIcms    = new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
 
-            decimal vRedBcIcms  = vBcIcms.GerarBaseIcms() * (AliqRedBcIcms / 100);
+            BaseReduzidaIcms vBcRedIcms = new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms);
+            decimal vBaseRedIcms = vBcRedIcms.GerarBaseReduzidaIcms();
 
-            ValorIcms valorIcms = new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
+            return (AliqIcmsProprio / 100) * vBaseRedIcms;
 
-            return (valorIcms.GerarValorIcms() * (AliqRedBcIcms / 100));
         }
 
         public decimal BaseIcmsST()
@@ -97,14 +98,14 @@ namespace FiscalNet.Implementacoes.Icms
         public decimal ValorIcmsST()
         {
             throw new NotImplementedException();
-        }
+        }        
 
-        public decimal ValorRedBaseIcms()
+        public decimal ValorRedBaseIcmsST()
         {
             throw new NotImplementedException();
         }
 
-        public decimal ValorRedBaseIcmsST()
+        public decimal BaseIcms()
         {
             throw new NotImplementedException();
         }

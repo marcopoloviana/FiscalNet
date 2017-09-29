@@ -1,4 +1,4 @@
-﻿using FiscalNet.Implementacoes.IcmsExceptions;
+﻿using FiscalNet.Implementacoes.IpiExceptions;
 using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    class Icms00 : IIcms
+    public class Icms00 : IIcms
     {
         private decimal AliqIcmsProprio { get; set; }
         private decimal ValorIpi { get; set; }

@@ -40,10 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementacoes\Cofins\Cofins01_02.cs" />
+    <Compile Include="Implementacoes\Cofins\Cofins03.cs" />
+    <Compile Include="Implementacoes\Cofins\CofinsNaoTributado.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemBasePropriaException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemSTException.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcms.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcmsST.cs" />
+    <Compile Include="Implementacoes\Icms\BaseReduzidaIcms.cs" />
     <Compile Include="Implementacoes\Icms\Icms00.cs" />
     <Compile Include="Implementacoes\Icms\Icms10.cs" />
     <Compile Include="Implementacoes\Icms\Icms101_102_103.cs" />
@@ -59,6 +63,10 @@
     <Compile Include="Implementacoes\Icms\Icms900.cs" />
     <Compile Include="Implementacoes\Icms\ValorIcms.cs" />
     <Compile Include="Implementacoes\Icms\ValorIcmsST.cs" />
+    <Compile Include="Implementacoes\Ipi\Ipi50.cs" />
+    <Compile Include="Implementacoes\Pis\Pis01_02.cs" />
+    <Compile Include="Implementacoes\Pis\PisNaoTributado.cs" />
+    <Compile Include="Implementacoes\Pis\Pis03.cs" />
     <Compile Include="Interfaces\ICofins.cs" />
     <Compile Include="Interfaces\IIcms.cs" />
     <Compile Include="Interfaces\IIpi.cs" />
@@ -74,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+    <Folder Include="Implementacoes\IpiExceptions\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
