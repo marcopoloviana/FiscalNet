@@ -26,7 +26,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             this.AliqIcmsProprio    = aliqIcmsProprio;
             this.AliqIcmsST         = aliqIcmsST;
-            this.ValorIpi           = valorIpi;
+            this.ValorIpi           = 0;
             this.DespesasAcessorias = despesasAcessorias;
             this.ValorFrete         = valorFrete;
             this.Mva                = mva;
