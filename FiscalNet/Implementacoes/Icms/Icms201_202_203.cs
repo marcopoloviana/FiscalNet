@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalNET.Implementacoes.IcmsImpl
+namespace FiscalNET.Implementacoes.Icms
 {
     public class Icms201_202_203 : IIcms
     {

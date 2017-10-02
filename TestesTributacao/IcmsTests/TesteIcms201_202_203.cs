@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FiscalNET.Implementacoes.IcmsImpl;
+using FiscalNET.Implementacoes.Icms;
 using FiscalNET.Interfaces;
 
 namespace TestesTributacao.IcmsTests
@@ -15,6 +15,8 @@ namespace TestesTributacao.IcmsTests
 
             Assert.AreEqual(13900, icms202.BaseIcmsST());
             Assert.AreEqual(1350, icms202.ValorIcmsST());
+            
+            
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using FiscalNet.Implementacoes.IpiExceptions;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
 using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -78,32 +78,32 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemBasePropriaException();
         }
 
         public decimal ValorIcms()
         {
-            throw new NotImplementedException();
+            throw new SemBasePropriaException();
         }
 
         public decimal PercRedBaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal PercRedBaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }                
 
         public decimal ValorRedBaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }
 
         public decimal ValorRedBaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }
     }
 }

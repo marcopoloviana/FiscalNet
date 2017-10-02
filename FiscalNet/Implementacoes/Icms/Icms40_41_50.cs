@@ -1,4 +1,5 @@
-﻿using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
@@ -21,7 +22,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
@@ -29,7 +30,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
@@ -37,48 +38,48 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
         public decimal BaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemBasePropriaException();
         }
 
         public decimal BaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemICMSSTException();
         }
 
         public decimal PercRedBaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal PercRedBaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }
 
         public decimal ValorIcms()
         {
-            throw new NotImplementedException();
+            throw new SemBasePropriaException();
         }
 
         public decimal ValorIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemICMSSTException();
         }
 
         public decimal ValorRedBaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal ValorRedBaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using FiscalNET.Implementacoes.IcmsImpl;
+﻿using FiscalNET.Implementacoes.Icms;
 using FiscalNET.Interfaces;
 using System;
 using System.Collections.Generic;
