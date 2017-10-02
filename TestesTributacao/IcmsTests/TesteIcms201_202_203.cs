@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FiscalNET.Implementacoes.Icms;
-using FiscalNET.Interfaces;
+using FiscalNet.Implementacoes.Icms;
+using FiscalNet.Interfaces;
 
 namespace TestesTributacao.IcmsTests
 {

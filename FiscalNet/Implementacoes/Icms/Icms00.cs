@@ -1,5 +1,5 @@
 ﻿using FiscalNet.Implementacoes.IcmsExceptions;
-using FiscalNET.Interfaces;
+using FiscalNet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
