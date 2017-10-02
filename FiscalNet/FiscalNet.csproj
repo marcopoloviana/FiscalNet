@@ -47,7 +47,7 @@
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsSTException.cs" />
     <Compile Include="Implementacoes\Icms\SemIcms.cs" />
     <Compile Include="Utils\ConjuntosCST.cs" />
-    <Compile Include="Implementacoes\IcmsExceptions\SemICMSProprioExceptio.cs" />
+    <Compile Include="Implementacoes\IcmsExceptions\SemICMSProprioException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemICMSSTException.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcms.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcmsST.cs" />
