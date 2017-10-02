@@ -1,5 +1,5 @@
-﻿using FiscalNET.Implementacoes.IcmsImpl;
-using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.Icms;
+using FiscalNet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

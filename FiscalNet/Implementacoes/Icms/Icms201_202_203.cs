@@ -1,12 +1,12 @@
-﻿using FiscalNet.Implementacoes.IpiExceptions;
-using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalNET.Implementacoes.IcmsImpl
+namespace FiscalNet.Implementacoes.Icms
 {
     public class Icms201_202_203 : IIcms
     {

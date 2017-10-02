@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalNet.Interfaces
+namespace FiscalNet.Utils
 {
-    public interface IIpi
+    class TesteConjuntosCST
     {
-        decimal BaseCalculo();
-        decimal Valor();
+        
     }
 }

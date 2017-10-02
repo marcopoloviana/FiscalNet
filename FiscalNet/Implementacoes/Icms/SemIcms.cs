@@ -1,4 +1,5 @@
-﻿using FiscalNet.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
-    public class Icms90 : IIcms
+    public class SemIcms : IIcms
     {
-        private IIcms Icms { get; set; }
-        public Icms90(IIcms icms)
-        {
-            this.Icms = icms;
-        }
         public bool PossuiIcmsProprio
         {
             get
             {
-                return Icms.PossuiIcmsProprio;
+                return false;
             }
         }
 
@@ -26,7 +22,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                return Icms.PossuiIcmsST;
+                return false;
             }
         }
 
@@ -34,7 +30,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                return Icms.PossuiRedBCIcmsProprio;
+                return false;
             }
         }
 
@@ -42,48 +38,48 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                return Icms.PossuiRedBCIcmsST;
+                return false;
             }
         }
 
         public decimal BaseIcms()
         {
-            return Icms.BaseIcms();
+            throw new SemBasePropriaException();
         }
 
         public decimal BaseIcmsST()
         {
-            return Icms.BaseIcmsST();
+            throw new SemICMSSTException();
         }
 
         public decimal PercRedBaseIcms()
         {
-            return Icms.PercRedBaseIcms();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal PercRedBaseIcmsST()
         {
-            return Icms.PercRedBaseIcmsST();
+            throw new SemRedBaseIcmsSTException();
         }
 
         public decimal ValorIcms()
         {
-            return Icms.ValorIcms();
+            throw new SemBasePropriaException();
         }
 
         public decimal ValorIcmsST()
         {
-            return Icms.ValorIcmsST();
+            throw new SemICMSSTException();
         }
 
         public decimal ValorRedBaseIcms()
         {
-            return Icms.ValorRedBaseIcms();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal ValorRedBaseIcmsST()
         {
-            return Icms.ValorRedBaseIcmsST();
+            throw new SemRedBaseIcmsSTException();
         }
     }
 }

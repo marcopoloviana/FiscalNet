@@ -1,5 +1,5 @@
-﻿using FiscalNet.Implementacoes.IpiExceptions;
-using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             this.AliqIcmsProprio    = aliqIcmsProprio;
             this.AliqIcmsST         = aliqIcmsST;
-            this.ValorIpi           = valorIpi;
+            this.ValorIpi           = 0;
             this.DespesasAcessorias = despesasAcessorias;
             this.ValorFrete         = valorFrete;
             this.Mva                = mva;
@@ -88,22 +88,22 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal PercRedBaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal PercRedBaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }                
 
         public decimal ValorRedBaseIcms()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal ValorRedBaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using FiscalNet.Implementacoes.IpiExceptions;
-using FiscalNET.Interfaces;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
