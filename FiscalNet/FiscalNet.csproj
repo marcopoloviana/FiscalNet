@@ -46,7 +46,7 @@
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsSTException.cs" />
     <Compile Include="Implementacoes\Icms\SemIcms.cs" />
-    <Compile Include="Utils\ConjuntosCST.cs" />
+    <Compile Include="Utils\Util.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemICMSProprioException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemICMSSTException.cs" />
     <Compile Include="Implementacoes\Icms\BaseIcms.cs" />
@@ -80,7 +80,6 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Test_Icms201_202_203.cs" />
-    <Compile Include="Utils\TesteConjuntosCST.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
