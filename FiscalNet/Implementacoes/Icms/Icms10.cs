@@ -77,8 +77,8 @@ namespace FiscalNet.Implementacoes.Icms
         }
 
         public decimal BaseIcmsST()
-        {
-            return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();
+        {            
+            return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, Mva, ValorProduto, ValorSeguro).GerarBaseIcmsST();
         }
 
         public decimal ValorIcmsST()
