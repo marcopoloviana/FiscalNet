@@ -23,7 +23,7 @@ namespace TestesTributos
 
             decimal baseSt = icms202.BaseIcmsST();
             decimal valorSt = icms202.ValorIcmsST();
-            
+
             Console.WriteLine($"Base ST: {baseSt.ToString("N2")}");
             Console.WriteLine($"Valor ST: {valorSt.ToString("N2")}");
 
