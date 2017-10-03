@@ -27,8 +27,6 @@ namespace FiscalNet.Implementacoes.Icms
             decimal valorFrete, decimal valorProduto,
             decimal valorSeguro)
         {
-            this.PossuiRedBCIcmsProprio = true;
-            this.PossuiRedBCIcmsST      = true;
             this.AliqIcmsProprio        = aliqIcmsProprio;
             this.AliqRedBcIcms          = aliqRedBcIcms;
             this.AliqIcmsST             = aliqIcmsST;
@@ -62,12 +60,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                return this.PossuiRedBCIcmsProprio;
-            }
-
-            set
-            {
-                this.PossuiRedBCIcmsProprio = value;
+                return (AliqRedBcIcms > 0);
             }
         }
 
@@ -75,12 +68,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             get
             {
-                return this.PossuiRedBCIcmsST;
-            }
-
-            set
-            {
-                this.PossuiRedBCIcmsST = value;
+                return (AliqRedBcIcmsST > 0);
             }
         }
 
@@ -90,7 +78,6 @@ namespace FiscalNet.Implementacoes.Icms
                 return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
             else
                return this.BaseIcms();
-
         }
 
         public decimal BaseIcms()
