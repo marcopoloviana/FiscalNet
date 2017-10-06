@@ -17,10 +17,10 @@ namespace FiscalNet.Interfaces
         decimal ValorIcms();
 
         decimal PercRedBaseIcms();
-        decimal ValorRedBaseIcms();
+        //decimal ValorRedBaseIcms();
 
         decimal PercRedBaseIcmsST();
-        decimal ValorRedBaseIcmsST();
+        //decimal ValorRedBaseIcmsST();
 
         decimal BaseIcmsST();
         decimal ValorIcmsST();

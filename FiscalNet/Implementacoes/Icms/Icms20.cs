@@ -64,10 +64,10 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        public decimal ValorRedBaseIcms()
-        {
-            return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
-        }
+        //public decimal ValorRedBaseIcms()
+        //{
+        //    return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
+        //}
 
         public decimal ValorIcms()
         {
@@ -87,7 +87,8 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcms()
         {
-            return this.ValorRedBaseIcms();
+            //return this.ValorRedBaseIcms();
+            return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
         }
 
         public decimal BaseIcmsST()
@@ -105,10 +106,10 @@ namespace FiscalNet.Implementacoes.Icms
             throw new SemICMSSTException();
         }        
 
-        public decimal ValorRedBaseIcmsST()
-        {
-            throw new SemRedBaseIcmsSTException();
-        }
+        //public decimal ValorRedBaseIcmsST()
+        //{
+        //    throw new SemRedBaseIcmsSTException();
+        //}
         
     }
 }

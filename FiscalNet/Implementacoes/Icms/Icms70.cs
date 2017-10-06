@@ -72,28 +72,42 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        public decimal ValorRedBaseIcms()
+        //public decimal ValorRedBaseIcms()
+        //{
+        //    if (this.PossuiRedBCIcmsProprio)
+        //        return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
+        //    else
+        //       return this.BaseIcms();
+        //}
+
+        public decimal BaseIcms()
         {
             if (this.PossuiRedBCIcmsProprio)
                 return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
             else
-               return this.BaseIcms();
-        }
-
-        public decimal BaseIcms()
-        {
-            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
+                return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
         }
 
         public decimal ValorIcms()
         {            
-            if (this.PossuiRedBCIcmsProprio)
-                return (AliqIcmsProprio / 100) * this.ValorRedBaseIcms();
-            else
+            //if (this.PossuiRedBCIcmsProprio)
+            //    return (AliqIcmsProprio / 100) * this.ValorRedBaseIcms();
+            //else
                 return (AliqIcmsProprio / 100) * this.BaseIcms();
         }
 
-        public decimal ValorRedBaseIcmsST()
+        //public decimal ValorRedBaseIcmsST()
+        //{
+        //    if (this.PossuiRedBCIcmsProprio)
+        //    {
+        //        decimal vBaseIcmsST = new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();
+        //        return vBaseIcmsST * (AliqRedBcIcmsST / 100);
+        //    }
+        //    else
+        //        return this.BaseIcmsST();                
+        //}
+
+        public decimal BaseIcmsST()
         {
             if (this.PossuiRedBCIcmsProprio)
             {
@@ -101,19 +115,14 @@ namespace FiscalNet.Implementacoes.Icms
                 return vBaseIcmsST * (AliqRedBcIcmsST / 100);
             }
             else
-                return this.BaseIcmsST();                
-        }
-
-        public decimal BaseIcmsST()
-        {
-            return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();            return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, Mva, ValorProduto, ValorSeguro).GerarBaseIcmsST();
+                return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();            return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, Mva, ValorProduto, ValorSeguro).GerarBaseIcmsST();
         }
 
         public decimal ValorIcmsST()
         {
-            if (this.PossuiRedBCIcmsST)                
-                return ((this.ValorRedBaseIcmsST() * (AliqIcmsST / 100)) - this.ValorIcms());
-            else
+            //if (this.PossuiRedBCIcmsST)                
+            //    return ((this.ValorRedBaseIcmsST() * (AliqIcmsST / 100)) - this.ValorIcms());
+            //else
                 return ((this.BaseIcmsST() * (AliqIcmsST / 100)) - this.ValorIcms());
         }
 

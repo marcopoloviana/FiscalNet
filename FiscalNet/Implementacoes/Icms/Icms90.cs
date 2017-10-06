@@ -76,14 +76,14 @@ namespace FiscalNet.Implementacoes.Icms
             return Icms.ValorIcmsST();
         }
 
-        public decimal ValorRedBaseIcms()
-        {
-            return Icms.ValorRedBaseIcms();
-        }
+        //public decimal ValorRedBaseIcms()
+        //{
+        //    return Icms.ValorRedBaseIcms();
+        //}
 
-        public decimal ValorRedBaseIcmsST()
-        {
-            return Icms.ValorRedBaseIcmsST();
-        }
+        //public decimal ValorRedBaseIcmsST()
+        //{
+        //    return Icms.ValorRedBaseIcmsST();
+        //}
     }
 }

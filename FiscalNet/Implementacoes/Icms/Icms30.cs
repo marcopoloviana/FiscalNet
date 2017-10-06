@@ -96,14 +96,14 @@ namespace FiscalNet.Implementacoes.Icms
             throw new SemRedBaseIcmsSTException();
         }                
 
-        public decimal ValorRedBaseIcms()
-        {
-            throw new SemRedBaseIcmsSTException();
-        }
+        //public decimal ValorRedBaseIcms()
+        //{
+        //    throw new SemRedBaseIcmsSTException();
+        //}
 
-        public decimal ValorRedBaseIcmsST()
-        {
-            throw new SemRedBaseIcmsSTException();
-        }
+        //public decimal ValorRedBaseIcmsST()
+        //{
+        //    throw new SemRedBaseIcmsSTException();
+        //}
     }
 }
