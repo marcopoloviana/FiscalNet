@@ -9,35 +9,23 @@ namespace FiscalNet.Implementacoes.Pis
 {
     public class Pis03 : IPis
     {
-        private decimal AliqEspecificaPis { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
-        private decimal ValorProduto { get; set; }
-        private decimal ValorSeguro { get; set; }
-        private decimal QuantidadeProduto { get; set; }
+        private decimal ValorPisUnitario { get; set; }
+        private decimal QuantidadeTributavel { get; set; }
 
-        public Pis03(decimal aliqEspecificaPis,
-            decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro, decimal quantidadeProduto)
+        public Pis03(decimal valorPisUnitario,
+            decimal quantidadeTributavel)
         {
-            this.AliqEspecificaPis  = aliqEspecificaPis;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
-            this.ValorProduto       = valorProduto;
-            this.ValorSeguro        = valorSeguro;
-            this.QuantidadeProduto  = quantidadeProduto;
-
+            this.ValorPisUnitario = valorPisUnitario;
+            this.QuantidadeTributavel = quantidadeTributavel;
         }
         public decimal BaseCalculo()
         {
-            decimal BasePis = this.QuantidadeProduto;
-            return BasePis;
+            return this.QuantidadeTributavel;
         }
 
         public decimal Valor()
         {
-            return (this.BaseCalculo() * AliqEspecificaPis);
+            return (this.QuantidadeTributavel * this.ValorPisUnitario);
         }
     }
 }
