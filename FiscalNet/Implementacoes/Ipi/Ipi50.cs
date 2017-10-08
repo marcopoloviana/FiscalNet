@@ -17,7 +17,7 @@ namespace FiscalNet.Implementacoes.Ipi
         private decimal ValorSeguro { get; set; }
 
         public Ipi50(decimal aliqIpi,
-             decimal despesasAcessorias,
+            decimal despesasAcessorias,
             decimal valorFrete, decimal valorProduto,
             decimal valorSeguro)
         {

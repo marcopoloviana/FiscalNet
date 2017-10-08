@@ -46,6 +46,7 @@
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsSTException.cs" />
     <Compile Include="Implementacoes\Icms\SemIcms.cs" />
+    <Compile Include="Implementacoes\Ipi\Ipi50Especifico.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemICMSProprioException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemICMSSTException.cs" />
