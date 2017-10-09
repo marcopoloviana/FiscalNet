@@ -25,7 +25,8 @@ Está licenciada sobre a LGPL.
     {
     IIcms icms202 = new Icms201_202_203(12, 18, 400, 1565, 35, 39, 8000, 0);
     
-    decimal baseIcms = icms202.ValorIcms();
+    decimal baseIcms = icms202.BaseIcms();
+    decimal valorIcms = icms202.ValorIcms();
     
     decimal baseSt = icms202.BaseIcmsST();
     decimal valorSt = icms202.ValorIcmsST();
