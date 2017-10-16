@@ -12,3 +12,5 @@ C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\TestesTributacao\bin\Debug\Fisc
 C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.csprojResolveAssemblyReference.cache
 C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.dll
 C:\Users\Marcos Vinícius\Source\Repos\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\TestesTributacao\obj\Debug\TestesTributacao.csproj.CoreCompileInputs.cache
