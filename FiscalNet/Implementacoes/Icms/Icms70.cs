@@ -109,9 +109,9 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcmsST()
         {
-            if (this.PossuiRedBCIcmsProprio)
+            if (this.PossuiRedBCIcmsProprio) // trocar opra PossuiBaseICMSredST
             {
-                decimal vBaseIcmsST = new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();
+                decimal vBaseIcmsST = new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST(); // padronizar ordem de parametros base icms baset
                 return vBaseIcmsST * (AliqRedBcIcmsST / 100);
             }
             else

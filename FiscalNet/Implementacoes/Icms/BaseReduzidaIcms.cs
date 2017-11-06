@@ -18,7 +18,7 @@ namespace FiscalNet.Implementacoes.Icms
         public BaseReduzidaIcms(decimal valorIpi,
             decimal despesasAcessorias,
             decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro, decimal aliqBcRedIcms)
+            decimal valorSeguro, decimal aliqBcRedIcms, int tipobcred)
         {
             this.ValorIpi           = valorIpi;
             this.DespesasAcessorias = despesasAcessorias;
@@ -30,18 +30,25 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal GerarBaseReduzidaIcms()
         {
-            /*
-            * Base do ICMS Inter = (Valor do produto +
-            *  Frete +
-            *   Seguro + 
-            *   Outras Despesas Acessórias – Descontos) * (Aliq. de redução / 100)
-            * */
+                /*
+                * Base do ICMS Inter = (Valor do produto +
+                *  Frete +
+                *   Seguro + 
+                *   Outras Despesas Acessórias – Descontos) 
+                *
+                * Base Reduzida = Base do ICMS Inter - (Base doicms inter * (Aliq. Reducao / 100))
+                */
 
-            decimal BaseReduzidaIcms = (ValorProduto +
-                ValorFrete +
-                ValorSeguro +
-                DespesasAcessorias) * (AliqBcRedIcms / 100);
-            return BaseReduzidaIcms;
+                decimal BaseNormal = (ValorProduto +
+                    ValorFrete +
+                    ValorSeguro +
+                    DespesasAcessorias);
+
+                decimal BaseReduzidaIcms = BaseNormal - (BaseNormal * (AliqBcRedIcms / 100));
+
+                return BaseReduzidaIcms;
+            }            
+            
         }
 
     }
