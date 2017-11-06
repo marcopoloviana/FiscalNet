@@ -18,7 +18,7 @@ namespace FiscalNet.Implementacoes.Icms
         public BaseReduzidaIcms(decimal valorIpi,
             decimal despesasAcessorias,
             decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro, decimal aliqBcRedIcms, int tipobcred)
+            decimal valorSeguro, decimal aliqBcRedIcms)
         {
             this.ValorIpi           = valorIpi;
             this.DespesasAcessorias = despesasAcessorias;
