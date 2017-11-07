@@ -1,5 +1,0 @@
-C:\Users\Marcos Vinícius\Documents\Visual Studio 2015\Projects\FiscalNet\FiscalNet\bin\Release\FiscalNet.dll
-C:\Users\Marcos Vinícius\Documents\Visual Studio 2015\Projects\FiscalNet\FiscalNet\bin\Release\FiscalNet.pdb
-C:\Users\Marcos Vinícius\Documents\Visual Studio 2015\Projects\FiscalNet\FiscalNet\obj\Release\FiscalNet.csprojResolveAssemblyReference.cache
-C:\Users\Marcos Vinícius\Documents\Visual Studio 2015\Projects\FiscalNet\FiscalNet\obj\Release\FiscalNet.dll
-C:\Users\Marcos Vinícius\Documents\Visual Studio 2015\Projects\FiscalNet\FiscalNet\obj\Release\FiscalNet.pdb
