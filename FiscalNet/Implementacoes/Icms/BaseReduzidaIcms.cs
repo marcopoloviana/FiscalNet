@@ -20,35 +20,33 @@ namespace FiscalNet.Implementacoes.Icms
             decimal valorFrete, decimal valorProduto,
             decimal valorSeguro, decimal aliqBcRedIcms)
         {
-            this.ValorIpi           = valorIpi;
+            this.ValorIpi = valorIpi;
             this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
-            this.ValorProduto       = valorProduto;
-            this.ValorSeguro        = valorSeguro;
-            this.AliqBcRedIcms      = aliqBcRedIcms;
+            this.ValorFrete = valorFrete;
+            this.ValorProduto = valorProduto;
+            this.ValorSeguro = valorSeguro;
+            this.AliqBcRedIcms = aliqBcRedIcms;
         }
 
         public decimal GerarBaseReduzidaIcms()
         {
-                /*
-                * Base do ICMS Inter = (Valor do produto +
-                *  Frete +
-                *   Seguro + 
-                *   Outras Despesas Acessórias – Descontos) 
-                *
-                * Base Reduzida = Base do ICMS Inter - (Base doicms inter * (Aliq. Reducao / 100))
-                */
+            /*
+            * Base do ICMS Inter = (Valor do produto +
+            *  Frete +
+            *   Seguro + 
+            *   Outras Despesas Acessórias – Descontos) 
+            *
+            * Base Reduzida = Base do ICMS Inter - (Base doicms inter * (Aliq. Reducao / 100))
+            */
 
-                decimal BaseNormal = (ValorProduto +
-                    ValorFrete +
-                    ValorSeguro +
-                    DespesasAcessorias);
+            decimal BaseNormal = (ValorProduto +
+                ValorFrete +
+                ValorSeguro +
+                DespesasAcessorias);
 
-                decimal BaseReduzidaIcms = BaseNormal - (BaseNormal * (AliqBcRedIcms / 100));
+            decimal BaseReduzidaIcms = BaseNormal - (BaseNormal * (AliqBcRedIcms / 100));
 
-                return BaseReduzidaIcms;
-            }            
-            
+            return BaseReduzidaIcms;
         }
 
     }

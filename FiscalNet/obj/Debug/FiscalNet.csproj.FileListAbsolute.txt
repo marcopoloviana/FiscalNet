@@ -13,3 +13,4 @@ C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\bin\Debu
 C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.dll
 C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.csprojResolveAssemblyReference.cache

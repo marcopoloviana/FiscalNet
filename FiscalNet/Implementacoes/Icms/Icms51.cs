@@ -69,16 +69,26 @@ namespace FiscalNet.Implementacoes.Icms
             return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
         }
 
-        public decimal ValorIcms(out decimal vIcmsOp, out decimal vIcmsDif)
+        public decimal ValorIcms()
         {
             BaseIcms vBcIcms = new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
 
             ValorIcms valorIcms = new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
 
-            vIcmsOp  = valorIcms.GerarValorIcms(); // icms da operacao  100,00
-            vIcmsDif = (valorIcms.GerarValorIcms() * (AliqDifIcms / 100)); // icms diferido 30,00
             return (valorIcms.GerarValorIcms() - ((valorIcms.GerarValorIcms() * (AliqDifIcms / 100)))); // icms final 70,00
         }
+
+        //public decimal ValorIcms()
+        //{
+        //    BaseIcms vBcIcms = new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
+
+        //    ValorIcms valorIcms = new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
+
+        //    //vIcmsOp = valorIcms.GerarValorIcms(); // icms da operacao  100,00
+        //    //vIcmsDif = (valorIcms.GerarValorIcms() * (AliqDifIcms / 100)); // icms diferido 30,00
+
+        //    return (valorIcms.GerarValorIcms() - ((valorIcms.GerarValorIcms() * (AliqDifIcms / 100)))); // icms final 70,00
+        //}
 
 
         public decimal BaseIcmsST()
@@ -100,6 +110,7 @@ namespace FiscalNet.Implementacoes.Icms
         {
             throw new NotImplementedException();
         }
+
 
         //public decimal ValorRedBaseIcms()
         //{

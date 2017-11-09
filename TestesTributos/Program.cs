@@ -17,12 +17,14 @@ namespace TestesTributos
 
         private static void BaseValorST_201_202_203()
         {
-            IIcms icms202 = new Icms201_202_203(12, 18, 400, 1565, 35, 39, 8000, 0);
+            IIcms icms51 = new Icms51(17,35,0,0,0,100,0);
 
-            decimal baseIcms = icms202.ValorIcms();
+            decimal valorIcmsDif, valorIcmsOp; 
 
-            decimal baseSt = icms202.BaseIcmsST();
-            decimal valorSt = icms202.ValorIcmsST();
+            decimal baseIcms = icms51.ValorIcms(out valorIcmsOp, out valorIcmsDif);
+
+            decimal baseSt = icms51.BaseIcmsST();
+            decimal valorSt = icms51.ValorIcmsST();
 
             Console.WriteLine($"Base ST: {baseSt.ToString("N2")}");
             Console.WriteLine($"Valor ST: {valorSt.ToString("N2")}");

@@ -43,6 +43,7 @@
     <Compile Include="Implementacoes\Cofins\Cofins01_02.cs" />
     <Compile Include="Implementacoes\Cofins\Cofins03.cs" />
     <Compile Include="Implementacoes\Cofins\Confins04_05_06_07_08_09.cs" />
+    <Compile Include="Implementacoes\Extensions\IcmsExtensions.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsSTException.cs" />
     <Compile Include="Implementacoes\Icms\IcmsDifal.cs" />
