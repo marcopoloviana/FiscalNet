@@ -19,9 +19,11 @@ namespace TestesTributos
         {
             IIcms icms51 = new Icms51(17,35,0,0,0,100,0);
 
+            //decimal valorOperacao = (icms51 as Icms51).ValorOperacao();
+
             decimal valorIcmsDif, valorIcmsOp; 
 
-            decimal baseIcms = icms51.ValorIcms(out valorIcmsOp, out valorIcmsDif);
+            //decimal baseIcms = icms51.ValorIcms(out valorIcmsOp, out valorIcmsDif);
 
             decimal baseSt = icms51.BaseIcmsST();
             decimal valorSt = icms51.ValorIcmsST();

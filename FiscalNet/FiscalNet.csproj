@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FiscalNet</RootNamespace>
     <AssemblyName>FiscalNet</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,7 +44,6 @@
     <Compile Include="Implementacoes\Cofins\Cofins01_02.cs" />
     <Compile Include="Implementacoes\Cofins\Cofins03.cs" />
     <Compile Include="Implementacoes\Cofins\Confins04_05_06_07_08_09.cs" />
-    <Compile Include="Implementacoes\Extensions\IcmsExtensions.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsSTException.cs" />
     <Compile Include="Implementacoes\Icms\IcmsDifal.cs" />
@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+    <Folder Include="Implementacoes\Extensions\" />
     <Folder Include="Implementacoes\IpiExceptions\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>

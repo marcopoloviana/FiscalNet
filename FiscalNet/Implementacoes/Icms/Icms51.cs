@@ -111,6 +111,11 @@ namespace FiscalNet.Implementacoes.Icms
             throw new NotImplementedException();
         }
 
+        //public decimal ValorOperacao()
+        //{
+        //    return 0;
+        //}
+
 
         //public decimal ValorRedBaseIcms()
         //{
