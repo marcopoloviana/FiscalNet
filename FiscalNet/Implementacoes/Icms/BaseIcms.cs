@@ -1,44 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FiscalNet.Implementacoes.Icms
+﻿namespace FiscalNet.Implementacoes.Icms
 {
     public class BaseIcms
-    {        
-        private decimal ValorIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
+    {
         private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
         private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorIpi { get; set; }
+        private decimal ValorDesconto { get; set; }
 
-        public BaseIcms(decimal valorIpi, 
+        public BaseIcms(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
             decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro)
+            decimal valorIpi,
+            decimal valorDesconto)
         {
-            this.ValorIpi           = valorIpi;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
             this.ValorProduto       = valorProduto;
+            this.ValorFrete         = valorFrete;
             this.ValorSeguro        = valorSeguro;
+            this.DespesasAcessorias = despesasAcessorias;
+            this.ValorIpi           = valorIpi;
+            this.ValorDesconto      = valorDesconto;
         }
 
         public decimal GerarBaseIcms()
         {
-            /*
-            * Base do ICMS Inter = (Valor do produto +
-            *  Frete +
-            *   Seguro + 
-            *   Outras Despesas Acessórias – Descontos)
-            * */
-
             decimal BaseIcms = (ValorProduto +
                 ValorFrete +
                 ValorSeguro +
-                DespesasAcessorias);
+                DespesasAcessorias +
+                ValorIpi - 
+                ValorDesconto);
             return BaseIcms;
         }
     }

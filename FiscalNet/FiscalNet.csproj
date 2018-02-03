@@ -46,6 +46,7 @@
     <Compile Include="Implementacoes\Cofins\Confins04_05_06_07_08_09.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsException.cs" />
     <Compile Include="Implementacoes\IcmsExceptions\SemRedBaseIcmsSTException.cs" />
+    <Compile Include="Implementacoes\Icms\BaseReduzidaIcmsST.cs" />
     <Compile Include="Implementacoes\Icms\IcmsDifal.cs" />
     <Compile Include="Implementacoes\Icms\SemIcms.cs" />
     <Compile Include="Implementacoes\Ipi\Ipi50Especifico.cs" />

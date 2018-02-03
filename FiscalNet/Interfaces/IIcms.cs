@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FiscalNet.Interfaces
+﻿namespace FiscalNet.Interfaces
 {
     public interface IIcms
     {
@@ -15,12 +9,6 @@ namespace FiscalNet.Interfaces
 
         decimal BaseIcms();
         decimal ValorIcms();
-
-        decimal PercRedBaseIcms();
-        //decimal ValorRedBaseIcms();
-
-        decimal PercRedBaseIcmsST();
-        //decimal ValorRedBaseIcmsST();
 
         decimal BaseIcmsST();
         decimal ValorIcmsST();

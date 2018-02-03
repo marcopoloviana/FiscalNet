@@ -1,11 +1,11 @@
 ﻿/*
- * NA REDUÇÃO DE BASE DE ICMS, CALCULA-SE A BASE DE ICMS SEM
+ * NA REDUÇÃO DE BASE DE ICMS ST, CALCULA-SE A BASE DE ICMS SEM
  * IPI, E ACRESCENTA O IPI APÓS A REDUÇÃO DA BASE
  * 
  */
- namespace FiscalNet.Implementacoes.Icms
+namespace FiscalNet.Implementacoes.Icms
 {
-    public class BaseReduzidaIcms
+    public class BaseReduzidaIcmsST
     {
         private decimal ValorProduto { get; set; }
         private decimal ValorFrete { get; set; }
@@ -13,15 +13,15 @@
         private decimal DespesasAcessorias { get; set; }
         private decimal ValorIpi { get; set; }
         private decimal ValorDesconto { get; set; }
-        private decimal AliqBcRedIcms { get; set; }
+        private decimal AliqRedBaseIcmsST { get; set; }
 
-        public BaseReduzidaIcms(decimal valorProduto,
+        public BaseReduzidaIcmsST(decimal valorProduto,
             decimal valorFrete,
             decimal valorSeguro,
             decimal despesasAcessorias,
             decimal valorIpi,
             decimal valorDesconto,
-            decimal aliqBcRedIcms)
+            decimal aliqRedBaseIcmsST)
         {
             this.ValorProduto       = valorProduto;
             this.ValorFrete         = valorFrete;
@@ -29,18 +29,18 @@
             this.DespesasAcessorias = despesasAcessorias;
             this.ValorIpi           = valorIpi;
             this.ValorDesconto      = valorDesconto;
-            this.AliqBcRedIcms      = aliqBcRedIcms;
+            this.AliqRedBaseIcmsST  = aliqRedBaseIcmsST;
         }
 
-        public decimal GerarBaseReduzidaIcms()
+        public decimal GerarBaseReduzidaIcmsST()
         {
-            decimal BaseNormal = (ValorProduto +
+            decimal BaseIcms = (ValorProduto +
                 ValorFrete +
                 ValorSeguro +
                 DespesasAcessorias -
                 ValorDesconto);
 
-            return (BaseNormal - (BaseNormal * (AliqBcRedIcms / 100))) + ValorIpi;
+            return (BaseIcms - (BaseIcms * (AliqRedBaseIcmsST / 100))) + ValorIpi;
         }
     }
 }

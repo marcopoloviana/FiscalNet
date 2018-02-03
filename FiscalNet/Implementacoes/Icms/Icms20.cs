@@ -1,35 +1,38 @@
 ﻿using FiscalNet.Implementacoes.IcmsExceptions;
 using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
     public class Icms20 : IIcms
     {
+        private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
+        private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorIpi { get; set; }
+        private decimal ValorDesconto { get; set; }
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqRedBcIcms { get; set; }
-        private decimal ValorIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
-        private decimal ValorProduto { get; set; }
-        private decimal ValorSeguro { get; set; }
 
-        public Icms20(decimal aliqIcmsProprio, decimal aliqRedBcIcms,
-            decimal valorIpi, decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro)
+        private BaseReduzidaIcms BaseCalculo { get; set; }
+
+        public Icms20(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
+            decimal despesasAcessorias,
+            decimal valorIpi,
+            decimal valorDesconto,
+            decimal aliqIcmsProprio,
+            decimal aliqRedBcIcms)
         {
-            this.AliqIcmsProprio    = aliqIcmsProprio;
-            this.AliqRedBcIcms      = aliqRedBcIcms; 
-            this.ValorIpi           = valorIpi;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
             this.ValorProduto       = valorProduto;
+            this.ValorFrete         = valorFrete;
             this.ValorSeguro        = valorSeguro;
+            this.DespesasAcessorias = despesasAcessorias;
+            this.ValorIpi           = valorIpi;
+            this.ValorDesconto      = valorDesconto;
+            this.AliqIcmsProprio    = aliqIcmsProprio;
+            this.BaseCalculo        = new BaseReduzidaIcms(ValorProduto, ValorFrete, ValorSeguro, DespesasAcessorias, ValorIpi, ValorDesconto,AliqRedBcIcms);
         }
 
         public bool PossuiIcmsProprio
@@ -64,52 +67,25 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        //public decimal ValorRedBaseIcms()
-        //{
-        //    return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
-        //}
+        public decimal BaseIcms()
+        {
+            return BaseCalculo.GerarBaseReduzidaIcms();
+        }
 
         public decimal ValorIcms()
         {
-            BaseIcms vBcIcms    = new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
-
-            BaseReduzidaIcms vBcRedIcms = new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms);
-            decimal vBaseRedIcms = vBcRedIcms.GerarBaseReduzidaIcms();
-
-            return (AliqIcmsProprio / 100) * vBaseRedIcms;
-
-        }
-
-        public decimal PercRedBaseIcms()
-        {
-            return AliqRedBcIcms;
-        }
-
-        public decimal BaseIcms()
-        {
-            //return this.ValorRedBaseIcms();
-            return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
-        }
+            return new ValorIcms(BaseIcms(), AliqIcmsProprio).GerarValorIcms();            
+        }        
 
         public decimal BaseIcmsST()
         {
             throw new SemICMSSTException();
-        }        
-
-        public decimal PercRedBaseIcmsST()
-        {
-            throw new SemRedBaseIcmsSTException();
-        }        
+        }               
 
         public decimal ValorIcmsST()
         {
             throw new SemICMSSTException();
-        }        
-
-        //public decimal ValorRedBaseIcmsST()
-        //{
-        //    throw new SemRedBaseIcmsSTException();
-        //}
+        }
         
     }
 }

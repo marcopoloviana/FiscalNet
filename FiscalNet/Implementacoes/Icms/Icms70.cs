@@ -1,43 +1,55 @@
-﻿using FiscalNet.Implementacoes.IcmsExceptions;
+﻿/*
+ * O CST 70 PODE CALCULAR REDUÇÃO EM UMA DAS BASES DE ICMS
+ * OU NAS DUAS
+ * 
+ */
+
 using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
     public class Icms70 : IIcms
     {
+        private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
+        private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorIpi { get; set; }
+        private decimal ValorDesconto { get; set; }
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqRedBcIcms { get; set; }
         private decimal AliqIcmsST { get; set; }
         private decimal AliqRedBcIcmsST { get; set; }
         private decimal Mva { get; set; }
-        private decimal ValorIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
-        private decimal ValorProduto { get; set; }
-        private decimal ValorSeguro { get; set; }
 
-        public Icms70(decimal aliqIcmsProprio, decimal aliqRedBcIcms,
-            decimal aliqIcmsST, decimal aliqRedBcIcmsST, decimal mva,
-            decimal valorIpi, decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro)
+        private BaseIcms BaseCalculo { get; set; }
+        private BaseReduzidaIcms BaseCalculoReduzida { get; set; }
+
+        public Icms70(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
+            decimal despesasAcessorias,
+            decimal valorIpi,
+            decimal valorDesconto,
+            decimal aliqIcmsProprio,
+            decimal aliqRedBcIcms,
+            decimal aliqIcmsST, 
+            decimal aliqRedBcIcmsST,
+            decimal mva)
         {
+            this.ValorProduto           = valorProduto;
+            this.ValorFrete             = valorFrete;
+            this.ValorSeguro            = valorSeguro;
+            this.DespesasAcessorias     = despesasAcessorias;
+            this.ValorIpi               = valorIpi;
+            this.ValorDesconto          = valorDesconto;
             this.AliqIcmsProprio        = aliqIcmsProprio;
             this.AliqRedBcIcms          = aliqRedBcIcms;
             this.AliqIcmsST             = aliqIcmsST;
             this.AliqRedBcIcmsST        = aliqRedBcIcmsST;
             this.Mva                    = mva;
-            this.ValorIpi               = 0;
-            this.DespesasAcessorias     = despesasAcessorias;
-            this.ValorFrete             = valorFrete;
-            this.ValorProduto           = valorProduto;
-            this.ValorSeguro            = valorSeguro;
-
+            this.BaseCalculo            = new BaseIcms(ValorProduto, ValorFrete, ValorSeguro, DespesasAcessorias, ValorIpi, ValorDesconto);
+            this.BaseCalculoReduzida    = new BaseReduzidaIcms(ValorProduto, ValorFrete, ValorSeguro, DespesasAcessorias, ValorIpi, ValorDesconto,AliqRedBcIcms);
         }
 
         public bool PossuiIcmsProprio
@@ -72,71 +84,34 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        //public decimal ValorRedBaseIcms()
-        //{
-        //    if (this.PossuiRedBCIcmsProprio)
-        //        return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
-        //    else
-        //       return this.BaseIcms();
-        //}
 
         public decimal BaseIcms()
         {
             if (this.PossuiRedBCIcmsProprio)
-                return new BaseReduzidaIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, AliqRedBcIcms).GerarBaseReduzidaIcms();
+                return BaseCalculoReduzida.GerarBaseReduzidaIcms();
             else
-                return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
+                return BaseCalculo.GerarBaseIcms();
         }
 
         public decimal ValorIcms()
-        {            
-            //if (this.PossuiRedBCIcmsProprio)
-            //    return (AliqIcmsProprio / 100) * this.ValorRedBaseIcms();
-            //else
-                return (AliqIcmsProprio / 100) * this.BaseIcms();
+        {
+                return new ValorIcms(BaseIcms(), AliqIcmsProprio).GerarValorIcms();
         }
-
-        //public decimal ValorRedBaseIcmsST()
-        //{
-        //    if (this.PossuiRedBCIcmsProprio)
-        //    {
-        //        decimal vBaseIcmsST = new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();
-        //        return vBaseIcmsST * (AliqRedBcIcmsST / 100);
-        //    }
-        //    else
-        //        return this.BaseIcmsST();                
-        //}
 
         public decimal BaseIcmsST()
         {
-            if (this.PossuiRedBCIcmsProprio) // trocar opra PossuiBaseICMSredST
+            if (this.PossuiRedBCIcmsST)
             {
-                decimal vBaseIcmsST = new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST(); // padronizar ordem de parametros base icms baset
-                return vBaseIcmsST * (AliqRedBcIcmsST / 100);
+                return new BaseReduzidaIcmsST(ValorProduto,ValorFrete,ValorSeguro,DespesasAcessorias,ValorIpi,ValorDesconto,AliqRedBcIcmsST).GerarBaseReduzidaIcmsST();
             }
             else
-                return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro, Mva).GerarBaseIcmsST();            return new BaseIcmsST(ValorIpi, DespesasAcessorias, ValorFrete, Mva, ValorProduto, ValorSeguro).GerarBaseIcmsST();
+                return new BaseIcmsST(BaseIcms(), Mva).GerarBaseIcmsST();
         }
 
         public decimal ValorIcmsST()
         {
-            //if (this.PossuiRedBCIcmsST)                
-            //    return ((this.ValorRedBaseIcmsST() * (AliqIcmsST / 100)) - this.ValorIcms());
-            //else
                 return ((this.BaseIcmsST() * (AliqIcmsST / 100)) - this.ValorIcms());
-        }
-
-        public decimal PercRedBaseIcms()
-        {
-            return this.AliqRedBcIcms;
-        }
-
-        public decimal PercRedBaseIcmsST()
-        {
-            return this.AliqRedBcIcmsST;
         }        
-
-
     }
 }
 

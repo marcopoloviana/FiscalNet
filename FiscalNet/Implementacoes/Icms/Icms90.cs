@@ -1,9 +1,4 @@
 ﻿using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
@@ -56,16 +51,6 @@ namespace FiscalNet.Implementacoes.Icms
             return Icms.BaseIcmsST();
         }
 
-        public decimal PercRedBaseIcms()
-        {
-            return Icms.PercRedBaseIcms();
-        }
-
-        public decimal PercRedBaseIcmsST()
-        {
-            return Icms.PercRedBaseIcmsST();
-        }
-
         public decimal ValorIcms()
         {
             return Icms.ValorIcms();
@@ -76,14 +61,5 @@ namespace FiscalNet.Implementacoes.Icms
             return Icms.ValorIcmsST();
         }
 
-        //public decimal ValorRedBaseIcms()
-        //{
-        //    return Icms.ValorRedBaseIcms();
-        //}
-
-        //public decimal ValorRedBaseIcmsST()
-        //{
-        //    return Icms.ValorRedBaseIcmsST();
-        //}
     }
 }

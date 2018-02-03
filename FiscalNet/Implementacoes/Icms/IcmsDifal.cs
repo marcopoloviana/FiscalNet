@@ -1,39 +1,43 @@
 ﻿using FiscalNet.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
     public class IcmsDifal : IIcmsDifal
     {
+        private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
+        private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorIpi { get; set; }
+        private decimal ValorDesconto { get; set; }
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqIcmsInternoDestino { get; set; }
         private decimal Fcp { get; set; }
-        private decimal ValorIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
-        private decimal ValorProduto { get; set; }
-        private decimal ValorSeguro { get; set; }
         private int Partilha { get;  set; }
 
-        public IcmsDifal(decimal aliqIcmsProprio,
+        private BaseIcms BaseCalculo { get; set; }
+
+        public IcmsDifal(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
+            decimal despesasAcessorias,
+            decimal valorIpi,
+            decimal valorDesconto, 
+            decimal aliqIcmsProprio,
             decimal aliqIcmsInternoDestino,
-            decimal fcp,
-            decimal valorIpi, decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro)
+            decimal fcp)
         {
+            this.ValorProduto           = valorProduto;
+            this.ValorFrete             = valorFrete;
+            this.ValorSeguro            = valorSeguro;
+            this.DespesasAcessorias     = despesasAcessorias;
+            this.ValorIpi               = valorIpi;
+            this.ValorDesconto          = valorDesconto;
             this.AliqIcmsProprio        = aliqIcmsProprio;
             this.AliqIcmsInternoDestino = aliqIcmsInternoDestino;
             this.Fcp                    = fcp;
-            this.ValorIpi               = valorIpi;
-            this.DespesasAcessorias     = despesasAcessorias;
-            this.ValorFrete             = valorFrete;
-            this.ValorProduto           = valorProduto;
-            this.ValorSeguro            = valorSeguro;
+            this.BaseCalculo            = new BaseIcms(ValorProduto, ValorFrete, ValorSeguro, DespesasAcessorias, ValorIpi, ValorDesconto);
 
             this.Partilha = 0;
 
@@ -56,31 +60,29 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcms()
         {
-            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
+            return BaseCalculo.GerarBaseIcms();
         }
 
         public decimal ValorFcpDestino()
         {
-            decimal bcIcms = this.BaseIcms();
+            decimal bcIcms = BaseIcms();
 
             return (Fcp / 100 * bcIcms);
         }
 
         public decimal ValorDifal()
         {
-            return this.BaseIcms() * ((AliqIcmsInternoDestino - AliqIcmsProprio) / 100);
+            return BaseIcms() * ((AliqIcmsInternoDestino - AliqIcmsProprio) / 100);
         }
 
         public decimal ValorIcmsDestino()
         {            
-
-            return (this.ValorDifal() * (this.Partilha / 100));
-
+            return (ValorDifal() * (Partilha / 100));
         }
 
         public decimal ValorIcmsRemetente()
         {
-            decimal difal = this.BaseIcms() * ((AliqIcmsInternoDestino - AliqIcmsProprio) / 100);           
+            decimal difal = BaseIcms() * ((AliqIcmsInternoDestino - AliqIcmsProprio) / 100);           
 
             return (difal * ((100 - Partilha) / 100));
         }

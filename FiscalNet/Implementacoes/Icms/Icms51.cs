@@ -1,35 +1,39 @@
-﻿using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNet.Interfaces;
 
 namespace FiscalNet.Implementacoes.Icms
 {
     public class Icms51 : IIcms
     {
+        private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
+        private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorIpi { get; set; }
+        private decimal ValorDesconto { get; set; }
         private decimal AliqIcmsProprio { get; set; }
         private decimal AliqDifIcms { get; set; }
-        private decimal ValorIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
-        private decimal ValorProduto { get; set; }
-        private decimal ValorSeguro { get; set; }
 
+        private BaseIcms BaseCalculo { get; set; }
 
-        public Icms51(decimal aliqIcmsProprio, decimal aliqDifIcms,
-            decimal valorIpi, decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro)
+        public Icms51(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
+            decimal despesasAcessorias,
+            decimal valorIpi,
+            decimal valorDesconto,
+            decimal aliqIcmsProprio,
+            decimal aliqDifIcms)
         {
+            this.ValorProduto       = valorProduto;
+            this.ValorFrete         = valorFrete;
+            this.ValorSeguro        = valorSeguro;
+            this.DespesasAcessorias = despesasAcessorias;
+            this.ValorIpi           = valorIpi;
+            this.ValorDesconto      = valorDesconto;
             this.AliqIcmsProprio    = aliqIcmsProprio;
             this.AliqDifIcms        = aliqDifIcms;
-            this.ValorIpi           = valorIpi;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
-            this.ValorProduto       = valorProduto;
-            this.ValorSeguro        = valorSeguro;
+            this.BaseCalculo        = new BaseIcms(ValorProduto, ValorFrete, ValorSeguro, DespesasAcessorias, ValorIpi, ValorDesconto);
         }
 
         public bool PossuiIcmsProprio
@@ -66,65 +70,28 @@ namespace FiscalNet.Implementacoes.Icms
 
         public decimal BaseIcms()
         {
-            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
+            return BaseCalculo.GerarBaseIcms();
         }
 
         public decimal ValorIcms()
         {
-            BaseIcms vBcIcms = new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
-
-            ValorIcms valorIcms = new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
-
-            return (valorIcms.GerarValorIcms() - ((valorIcms.GerarValorIcms() * (AliqDifIcms / 100)))); // icms final 70,00
+            return new ValorIcms(BaseIcms(), AliqIcmsProprio).GerarValorIcms();            
         }
 
-        //public decimal ValorIcms()
-        //{
-        //    BaseIcms vBcIcms = new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
-
-        //    ValorIcms valorIcms = new ValorIcms(AliqIcmsProprio, ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
-
-        //    //vIcmsOp = valorIcms.GerarValorIcms(); // icms da operacao  100,00
-        //    //vIcmsDif = (valorIcms.GerarValorIcms() * (AliqDifIcms / 100)); // icms diferido 30,00
-
-        //    return (valorIcms.GerarValorIcms() - ((valorIcms.GerarValorIcms() * (AliqDifIcms / 100)))); // icms final 70,00
-        //}
-
+        public decimal ValorIcmsDiferido()
+        {
+            return (ValorIcms() - ((ValorIcms() * (AliqDifIcms / 100))));            
+        }
 
         public decimal BaseIcmsST()
         {
-            throw new NotImplementedException();
-        }
-
-        public decimal PercRedBaseIcms()
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal PercRedBaseIcmsST()
-        {
-            throw new NotImplementedException();
+            throw new SemICMSSTException();
         }
 
         public decimal ValorIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemICMSSTException();
         }
 
-        //public decimal ValorOperacao()
-        //{
-        //    return 0;
-        //}
-
-
-        //public decimal ValorRedBaseIcms()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public decimal ValorRedBaseIcmsST()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

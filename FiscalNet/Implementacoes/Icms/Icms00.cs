@@ -1,22 +1,20 @@
 ﻿using FiscalNet.Implementacoes.IcmsExceptions;
 using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
     public class Icms00 : IIcms
     {
-        private decimal AliqIcmsProprio { get; set; }
-        private decimal ValorIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
         private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
         private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorIpi { get; set; }
+        private decimal ValorDesconto { get; set; }
+        private decimal AliqIcmsProprio { get; set; }
 
+        private BaseIcms BaseCalculo { get; set; } 
+        
         public bool PossuiIcmsProprio
         {
             get
@@ -49,27 +47,32 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        public Icms00(decimal aliqIcmsProprio,
-            decimal valorIpi, decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro)
+        public Icms00(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
+            decimal despesasAcessorias,
+            decimal valorIpi,
+            decimal valorDesconto,
+            decimal aliqIcmsProprio)
         {
-            this.AliqIcmsProprio    = aliqIcmsProprio;
-            this.ValorIpi           = valorIpi;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
             this.ValorProduto       = valorProduto;
+            this.ValorFrete         = valorFrete;
             this.ValorSeguro        = valorSeguro;
+            this.DespesasAcessorias = despesasAcessorias;
+            this.ValorIpi           = valorIpi;
+            this.ValorDesconto      = valorDesconto;
+            this.AliqIcmsProprio    = aliqIcmsProprio;
+            this.BaseCalculo        = new BaseIcms(ValorProduto, ValorFrete, ValorSeguro, DespesasAcessorias, ValorIpi, ValorDesconto);
         }
 
         public decimal BaseIcms()
         {
-            return new BaseIcms(ValorIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro).GerarBaseIcms();
+            return BaseCalculo.GerarBaseIcms();
         }        
 
         public decimal ValorIcms()
         {            
-            return new ValorIcms(AliqIcmsProprio,ValorIpi, DespesasAcessorias,ValorFrete, ValorProduto, ValorSeguro).GerarValorIcms();
+            return new ValorIcms(BaseIcms(), AliqIcmsProprio).GerarValorIcms();
         }
 
         public decimal BaseIcmsST()
@@ -82,24 +85,5 @@ namespace FiscalNet.Implementacoes.Icms
             throw new SemICMSSTException();
         }
 
-        public decimal PercRedBaseIcms()
-        {
-            throw new SemRedBaseIcmsException();
-        }
-
-        //public decimal ValorRedBaseIcms()
-        //{
-        //    throw new SemRedBaseIcmsException();
-        //}
-
-        public decimal PercRedBaseIcmsST()
-        {
-            throw new SemRedBaseIcmsSTException();
-        }
-
-        //public decimal ValorRedBaseIcmsST()
-        //{
-        //    throw new SemRedBaseIcmsSTException();
-        //}
     }
 }
