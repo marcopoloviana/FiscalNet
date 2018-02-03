@@ -4,23 +4,23 @@ namespace FiscalNet.Implementacoes.Ipi
 {
     public class Ipi50 : IIpi
     {
-        private decimal AliqIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
         private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
         private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal AliqIpi { get; set; }
 
-        public Ipi50(decimal aliqIpi,
+        public Ipi50(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
             decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro)
+            decimal aliqIpi)
         {
-            this.AliqIpi            = aliqIpi;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
             this.ValorProduto       = valorProduto;
+            this.ValorFrete         = valorFrete;
             this.ValorSeguro        = valorSeguro;
-
+            this.DespesasAcessorias = despesasAcessorias;
+            this.AliqIpi            = aliqIpi;
         }
 
         public decimal BaseCalculo()
@@ -33,10 +33,8 @@ namespace FiscalNet.Implementacoes.Ipi
         }
 
         public decimal Valor()
-        {
-            Ipi50 bcIpi = new Ipi50(AliqIpi, DespesasAcessorias, ValorFrete, ValorProduto, ValorSeguro);
-
-            return ((AliqIpi / 100) * bcIpi.BaseCalculo());
+        {           
+            return ((AliqIpi / 100) * BaseCalculo());
         }
     }
 }

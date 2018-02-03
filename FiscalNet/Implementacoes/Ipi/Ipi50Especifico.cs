@@ -2,7 +2,7 @@
 
 namespace FiscalNet.Implementacoes.Ipi
 {
-    class Ipi50Especifico : IIpi
+    public class Ipi50Especifico : IIpi
     {
         private decimal ValorIpiUnitario { get; set; }
         private decimal QuantidadeTributavel { get; set; }        
@@ -15,12 +15,12 @@ namespace FiscalNet.Implementacoes.Ipi
         }
         public decimal BaseCalculo()
         {
-            return this.QuantidadeTributavel;
+            return QuantidadeTributavel;
         }
 
         public decimal Valor()
         {
-            return (this.QuantidadeTributavel * this.ValorIpiUnitario);
+            return (QuantidadeTributavel * ValorIpiUnitario);
         }
     }
 }
