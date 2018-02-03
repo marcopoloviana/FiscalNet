@@ -1,29 +1,49 @@
 ﻿using FiscalNet.Implementacoes.IcmsExceptions;
 using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Icms
 {
     public class Icms201_202_203 : IIcms
     {
-        private decimal AliqInterest { get; set; }
-        private decimal AliqInterna { get; set; }
-        private decimal ValorIpi { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
-        private decimal MVA { get; set; }
         private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
         private decimal ValorSeguro { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorIpi { get; set; }
+        private decimal ValorDesconto { get; set; }
+        private decimal AliqIcmsProprio { get; set; }
+        private decimal AliqIcmsST { get; set; }
+        private decimal Mva { get; set; }
+
+        private BaseIcms BaseCalculo { get; set; }        
+
+        public Icms201_202_203(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
+            decimal despesasAcessorias,
+            decimal valorIpi,
+            decimal valorDesconto,
+            decimal aliqIcmsProprio,
+            decimal aliqIcmsST,
+            decimal mva)
+        {
+            this.ValorProduto       = valorProduto;
+            this.ValorFrete         = valorFrete;
+            this.ValorSeguro        = valorSeguro;
+            this.DespesasAcessorias = despesasAcessorias;
+            this.ValorIpi           = valorIpi;
+            this.ValorDesconto      = valorDesconto;
+            this.AliqIcmsProprio    = aliqIcmsProprio;
+            this.AliqIcmsST         = aliqIcmsST;
+            this.Mva                = mva;
+            this.BaseCalculo        = new BaseIcms(ValorProduto, ValorFrete, ValorSeguro, DespesasAcessorias, ValorIpi, ValorDesconto);
+        }
 
         public bool PossuiIcmsProprio
         {
             get
             {
-                return false;
+                return true;
             }
         }
 
@@ -51,113 +71,35 @@ namespace FiscalNet.Implementacoes.Icms
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="aliqInterest"></param>
-        /// <param name="aliqInterna"></param>
-        /// <param name="valorIpi"></param>
-        /// <param name="despesasAcessorias"></param>
-        /// <param name="valorFrete"></param>
-        /// <param name="mva"></param>
-        /// <param name="valorProduto"> OBS: Já deve vir com desconto/acrescimo </param>
-        /// <param name="valorSeguro"></param>
-        public Icms201_202_203(decimal aliqInterest,
-            decimal aliqInterna, decimal valorIpi, decimal despesasAcessorias,
-            decimal valorFrete, decimal mva, decimal valorProduto,
-            decimal valorSeguro)
-        {
-            this.AliqInterest = aliqInterest;
-            this.AliqInterna = aliqInterna;
-            this.ValorIpi = valorIpi;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete = valorFrete;
-            this.MVA = mva;
-            this.ValorProduto = valorProduto;
-            this.ValorSeguro = valorSeguro;
-        }
-
-        private decimal BaseICMSProprio()
-        {
-            /*
-             * Base do ICMS Inter = (Valor do produto +
-             *  Frete +
-             *   Seguro + 
-             *   Outras Despesas Acessórias – Descontos)
-             * */
-
-            decimal resultado = (ValorProduto +
-                ValorFrete +
-                ValorSeguro +
-                DespesasAcessorias);
-            return resultado;
-        }
-
-        private decimal ValorICMSProprio()
-        {
-            decimal baseIcmsProprio = BaseICMSProprio();
-            decimal resultado = (AliqInterest / 100 * baseIcmsProprio);
-            return resultado;
-        }
-
-        public decimal BaseIcmsST()
-        {
-            /*
-             * (Valor do produto +
-             *  Valor do IPI +
-             *  Frete + 
-             *  Seguro +
-             *  Outras Despesas Acessórias – Descontos) * (1+(%MVA / 100))
-             * */
-
-            decimal resultado = ((ValorProduto +
-                ValorIpi +
-                ValorFrete +
-                ValorSeguro +
-                DespesasAcessorias) * (1 + (MVA / 100)));
-
-            return resultado;
-        }
-
-        public decimal ValorIcmsST()
-        {
-            /* ksakjadlkasnlkdnlsak
-             * (Base do ICMS ST * (Alíquota do ICMS Intra / 100)) – Valor do ICMS Inter
-             * */
-
-            decimal icmsProprio = ValorICMSProprio();
-            decimal resultado = (BaseIcmsST() * (AliqInterna / 100)) - icmsProprio;
-            return resultado;
-        }
 
         public decimal BaseIcms()
         {
-            throw new SemBasePropriaException();
+            return BaseCalculo.GerarBaseIcms();
         }
 
         public decimal ValorIcms()
         {
-            throw new SemBasePropriaException();
+            return new ValorIcms(BaseIcms(), AliqIcmsProprio).GerarValorIcms();
         }
 
-        public decimal PercRedBaseIcms()
+        public decimal BaseIcmsST()
         {
-            throw new NotImplementedException();
+            return new BaseIcmsST(BaseIcms(), Mva).GerarBaseIcmsST();
+        }
+
+        public decimal ValorIcmsST()
+        {
+            return new ValorIcmsST(BaseIcmsST(), AliqIcmsST, ValorIcms()).GerarValorIcmsST();
         }
 
         public decimal ValorRedBaseIcms()
         {
-            throw new NotImplementedException();
-        }
-
-        public decimal PercRedBaseIcmsST()
-        {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsException();
         }
 
         public decimal ValorRedBaseIcmsST()
         {
-            throw new NotImplementedException();
+            throw new SemRedBaseIcmsSTException();
         }
     }
 }

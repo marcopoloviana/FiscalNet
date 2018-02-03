@@ -1,10 +1,5 @@
-﻿using FiscalNet.Interfaces;
-using FiscalNet.Implementacoes.IcmsExceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FiscalNet.Implementacoes.IcmsExceptions;
+using FiscalNet.Interfaces;
 
 namespace FiscalNet.Implementacoes.Icms
 {
@@ -70,16 +65,6 @@ namespace FiscalNet.Implementacoes.Icms
         public decimal ValorIcmsST()
         {
             throw new SemICMSSTException();
-        }
-
-        public decimal ValorRedBaseIcms()
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal ValorRedBaseIcmsST()
-        {
-            throw new NotImplementedException();
         }
     }
 }
