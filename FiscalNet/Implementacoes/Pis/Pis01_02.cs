@@ -1,33 +1,29 @@
 ﻿using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Pis
 {
     public class Pis01_02 : IPis
     {
-
-        private decimal AliqPis { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
         private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
         private decimal ValorSeguro { get; set; }
-        private decimal ValorIpi { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorDesconto { get; set; }
+        private decimal AliqPis { get; set; }
 
-        public Pis01_02(decimal aliqPis,
+        public Pis01_02(decimal valorProduto,
+            decimal valorFrete,
+            decimal valorSeguro,
             decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro, decimal valorIpi)
+            decimal valorDesconto, 
+            decimal aliqPis)
         {
-            this.AliqPis = aliqPis;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete         = valorFrete;
             this.ValorProduto       = valorProduto;
+            this.ValorFrete         = valorFrete;
             this.ValorSeguro        = valorSeguro;
-            this.ValorIpi           = valorIpi;
+            this.DespesasAcessorias = despesasAcessorias;
+            this.ValorDesconto      = valorDesconto;
+            this.AliqPis            = aliqPis;
 
         }
         public decimal BaseCalculo()
@@ -35,14 +31,14 @@ namespace FiscalNet.Implementacoes.Pis
             decimal BasePis = (ValorProduto +
                 ValorFrete +
                 ValorSeguro +
-                DespesasAcessorias +
-                ValorIpi);
+                DespesasAcessorias -
+                ValorDesconto);
             return BasePis;
         }
 
         public decimal Valor()
         {
-            return (this.BaseCalculo() * (AliqPis / 100));
+            return (BaseCalculo() * (AliqPis / 100));
         }
     }
 }

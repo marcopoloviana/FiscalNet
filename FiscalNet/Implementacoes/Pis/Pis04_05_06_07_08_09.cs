@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FiscalNet.Implementacoes.Pis
+﻿namespace FiscalNet.Implementacoes.Pis
 {
-    class Pis04_05_06_07_08_09
+    public class Pis04_05_06_07_08_09
     {
+        public bool PossuiBaseCalculo
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public bool PossuiValor
+        {
+            get
+            {
+                return false;
+            }
+        }
     }
 }
