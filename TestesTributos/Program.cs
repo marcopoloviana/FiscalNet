@@ -17,7 +17,7 @@ namespace TestesTributos
 
         private static void BaseValorST_201_202_203()
         {
-            IIcms icms51 = new Icms51(17,35,0,0,0,100,0);
+            IIcms icms51 = new Icms51(0, 0, 0, 0, 0, 0, 0, 0);
 
             //decimal valorOperacao = (icms51 as Icms51).ValorOperacao();
 

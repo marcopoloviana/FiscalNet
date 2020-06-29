@@ -11,12 +11,10 @@ namespace TestesTributacao.IcmsTests
         [TestMethod]
         public void TesteCSOSN201_202_203()
         {
-            IIcms icms202 = new Icms201_202_203(12, 18, 400, 1565, 35, 39, 8000, 0);
+            IIcms icms202 = new Icms201_202_203(0, 0, 0, 0, 0, 0, 0, 0, 0);
 
             Assert.AreEqual(13900, icms202.BaseIcmsST());
-            Assert.AreEqual(1350, icms202.ValorIcmsST());
-            
-            
+            Assert.AreEqual(1350, icms202.ValorIcmsST());            
         }
     }
 }
