@@ -13,3 +13,8 @@ C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\bin\Debu
 C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.dll
 C:\Users\User\Documents\Visual Studio 2017\Projects\FiscalNet\FiscalNet\obj\Debug\FiscalNet.pdb
+C:\Projects\FiscalNET\FiscalNet\bin\Debug\FiscalNet.dll
+C:\Projects\FiscalNET\FiscalNet\bin\Debug\FiscalNet.pdb
+C:\Projects\FiscalNET\FiscalNet\obj\Debug\FiscalNet.csproj.CoreCompileInputs.cache
+C:\Projects\FiscalNET\FiscalNet\obj\Debug\FiscalNet.dll
+C:\Projects\FiscalNET\FiscalNet\obj\Debug\FiscalNet.pdb

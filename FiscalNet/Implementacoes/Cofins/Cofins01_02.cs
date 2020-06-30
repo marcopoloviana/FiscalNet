@@ -1,47 +1,44 @@
 ﻿using FiscalNet.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiscalNet.Implementacoes.Cofins
 {
     public class Cofins01_02 : ICofins
     {
-        private decimal AliqCofins { get; set; }
-        private decimal DespesasAcessorias { get; set; }
-        private decimal ValorFrete { get; set; }
         private decimal ValorProduto { get; set; }
+        private decimal ValorFrete { get; set; }
         private decimal ValorSeguro { get; set; }
-        private decimal ValorIpi { get; set; }
+        private decimal DespesasAcessorias { get; set; }
+        private decimal ValorDesconto { get; set; }
+        private decimal AliqCofins { get; set; }
 
-        public Cofins01_02(decimal aliqCofins,
+        public Cofins01_02(decimal valorProduto,
+            decimal valorFrete, 
+            decimal valorSeguro, 
             decimal despesasAcessorias,
-            decimal valorFrete, decimal valorProduto,
-            decimal valorSeguro, decimal valorIpi)
+            decimal valorDesconto,
+            decimal aliqCofins)
         {
-            this.AliqCofins = aliqCofins;
-            this.DespesasAcessorias = despesasAcessorias;
-            this.ValorFrete = valorFrete;
             this.ValorProduto = valorProduto;
+            this.ValorFrete = valorFrete;
             this.ValorSeguro = valorSeguro;
-            this.ValorIpi = valorIpi;
-
+            this.DespesasAcessorias = despesasAcessorias;
+            this.ValorDesconto = valorDesconto;
+            this.AliqCofins = aliqCofins;
         }
+
         public decimal BaseCalculo()
         {
-            decimal BasePis = (ValorProduto +
+            decimal Base = (ValorProduto +
                 ValorFrete +
                 ValorSeguro +
-                DespesasAcessorias +
-                ValorIpi);
-            return BasePis;
+                DespesasAcessorias -
+                ValorDesconto);
+            return Base;
         }
 
         public decimal Valor()
         {
-            return (this.BaseCalculo() * (AliqCofins / 100));
+            return (this.BaseCalculo() * (AliqCofins * 0.01M));
         }
     }
 }

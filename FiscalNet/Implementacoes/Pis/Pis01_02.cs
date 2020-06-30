@@ -18,27 +18,27 @@ namespace FiscalNet.Implementacoes.Pis
             decimal valorDesconto, 
             decimal aliqPis)
         {
-            this.ValorProduto       = valorProduto;
-            this.ValorFrete         = valorFrete;
-            this.ValorSeguro        = valorSeguro;
+            this.ValorProduto = valorProduto;
+            this.ValorFrete = valorFrete;
+            this.ValorSeguro = valorSeguro;
             this.DespesasAcessorias = despesasAcessorias;
-            this.ValorDesconto      = valorDesconto;
-            this.AliqPis            = aliqPis;
-
+            this.ValorDesconto = valorDesconto;
+            this.AliqPis = aliqPis;
         }
+
         public decimal BaseCalculo()
         {
-            decimal BasePis = (ValorProduto +
+            decimal Base = (ValorProduto +
                 ValorFrete +
                 ValorSeguro +
                 DespesasAcessorias -
                 ValorDesconto);
-            return BasePis;
+            return Base;
         }
 
         public decimal Valor()
         {
-            return (BaseCalculo() * (AliqPis / 100));
+            return (BaseCalculo() * (AliqPis * 0.01M));
         }
     }
 }
